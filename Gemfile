@@ -60,3 +60,6 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 gem "bootstrap-sass", "~>3.3.6"
 gem "jquery-rails"
 gem "jquery-ui-rails"
+group :production do
+  gem 'rails_12factor'
+end
