@@ -1,0 +1,50 @@
+<div class="plan-info">
+  <div class="info-header">
+    <div>
+      <h1><%= @plan.title %></h1>
+      <%= "投稿者 #{User.find(@plan.master_id).name}" %>
+    </div>
+    <div>
+      <%= link_to '✖️', root_path, method: :get, class:"close" %>
+    </div>
+  </div>
+  <div class="info-body">
+    <div class="info-title" >コメント(詳細事項)</div>
+    <div class="well">
+      <%= @plan.comment %>
+    </div>
+    <div class="well">
+      <span>開始時間</span>
+      <%= @plan.start_time.strftime("%m月%d日 %H:%M") %>
+      <span> ~ 終了時間</span>
+      <%= @plan.ending_time.strftime("%m月%d日 %H:%M") %>
+    </div>
+    <div class="info-user-table">
+      <span>参加者</span>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>名前</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @plan.users.each do |user| %>
+          <tr>
+            <th><%= link_to "#{user.name}", "#" %></th>
+            <th><%= user.email %></th>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <%# 投稿者（マスター）以外は変更・削除を表示させない %>
+  <div class="info-footer">
+    <div class="btn-group btn-group-justified">
+      <%= link_to '変更', edit_plan_path(@plan), method: :get, class:"btn btn-warning" %>
+      <%= link_to '削除', plan_path, method: :delete, class:"btn btn-danger" %>
+    </div>
+  </div>
+  <%# 投稿者（マスター）以外は変更・削除を表示させない %>
+</div>

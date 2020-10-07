@@ -1,0 +1,45 @@
+<div>
+  <div class="body">
+
+    <div class="sign-form">
+      <div class="sign-header">
+        Sign-up
+      </div>
+      <div class="sign-body">
+
+        <div class="app-title">
+          <h1>Plan-App</h1>
+          <div>
+            <%= link_to 'ログイン', new_user_session_path, method: :get %>
+          </div>
+        </div>
+
+        <%#= render "shared/error" %>
+
+        <div class="sign-input">
+          <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
+            <div class="form-group">
+              <label for="Name">名前</label>
+              <%= f.email_field :name, id:"Name", placeholder:"Name", class: "form-control" %>
+            </div>
+            
+            <div class="form-group">
+              <label for="InputEmail">メールアドレス</label>
+              <%= f.email_field :email, id:"InputEmail", placeholder:"Email", class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+              <label for="PassWord">パスワード</label>
+              <%= f.password_field :password, id:"PassWord", class: "form-control", placeholder:"Password" %>
+            </div>
+
+            <div class="sign-input-submit">
+              <%= f.submit "新規登録", class: "btn-sm btn-success" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

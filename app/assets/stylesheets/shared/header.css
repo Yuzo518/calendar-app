@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+}
+
+.top-page-header{
+  height: 50px;
+  width: 100vw;
+  background-color: whitesmoke;
+  opacity: 0.8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+

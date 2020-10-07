@@ -1,0 +1,32 @@
+.body{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-image: url("SignUpBack2.jpeg");
+  background-repeat: repeat;
+}
+
+.sign-form{
+  background-color: whitesmoke;
+  opacity: 0.8;
+  height: auto;
+  width: 400px;
+}
+
+.sign-header{
+  padding: 5px 20px;
+  color: aliceblue;
+  background-color: #28a745;
+}
+
+.app-title{
+  text-align: center;
+}
+
+.sign-input-submit{
+  text-align: right;
+  padding-right: 100px;
+  padding-bottom: 15px;
+}

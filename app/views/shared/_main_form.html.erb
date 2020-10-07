@@ -1,0 +1,42 @@
+  <div class="main-form">
+
+    <%# 検索フォーム部分　%>
+    <div class="main-header">
+      <div class="select-user">検索したいユーザーを選択してください：
+        <% 4.times do |t| %>
+        <select name="" id="">
+          <option value="--">選択してください</option>
+          <% User.all.each do |user| %>
+            <option><%= user.name %></option>
+          <% end %>
+        </select>
+        <% end %>
+      </div>
+    </div>
+    <%# 検索フォーム部分　%>
+
+    <%#カレンダー表示部分%>
+    <%# Planに予定がない場合はカレンダーのみ表示させる %>
+    <div class="calendar">
+      <%= month_calendar events: @plans do |date, plans| %>
+        <%= date.day %>
+        <% plans.each do |plan| %>
+          <div>
+            <%= link_to(plan_path(plan)) do %>
+              <% if plan.date_pattern == "通常" %>
+                <%= plan.start_time.strftime("%H:%M") %><span>-</span><%= plan.ending_time.strftime("%H:%M") %>
+                <%= plan.title%>
+              <% elsif plan.date_pattern == "締切" %>
+                <%= plan.ending_time.strftime("%H:%M") %><span>まで</span>
+                <%= plan.title %>
+              <% else %>
+                <%= plan.title %>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <%#/カレンダー表示部分%>
+
+  </div>
